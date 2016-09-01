@@ -22,9 +22,9 @@ public class Startup {
             not have to be a GUI class.
         */
         Employee employee = new Employee();
-        
+        System.out.println(employee.getCurrentDate());
 
-        System.out.println("The employee's status is: " + employee.getStatus());
+//        System.out.println("The employee's status is: " + employee.getStatus());
     }
     
     
