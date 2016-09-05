@@ -21,8 +21,11 @@ public class Startup {
             may need to create a new class that talks to Employee. This does
             not have to be a GUI class.
         */
+        
         Employee employee = new Employee();
-        System.out.println(employee.getCurrentDate());
+        HumanResources humanResources = new HumanResources();
+        
+        
 
 //        System.out.println("The employee's status is: " + employee.getStatus());
     }
