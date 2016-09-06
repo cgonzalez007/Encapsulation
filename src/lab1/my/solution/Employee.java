@@ -40,8 +40,11 @@ public class Employee {
         this.birthDate = birthDate;
     }
     
-    public void completeFirstDayProcedures(){
-    
+    public void completeFirstDayProcedures(String cubeId){
+        meetDepartmentStaff();
+        meetDepartmentStaff();
+        reviewDeptPolicies();
+        moveIntoCubicle(cubeId);
     }
     
     // Assume this must be performed first
@@ -74,7 +77,7 @@ public class Employee {
     }
 
     // Assume this must be performed 4th
-    public void moveIntoCubicle(String cubeId) {
+    private void moveIntoCubicle(String cubeId) {
         if (metWithHr && metDeptStaff && reviewedDeptPolicies) {
             System.out.println("Moved into cube on " + getFormattedDate());
             this.cubeId = cubeId;
@@ -88,7 +91,7 @@ public class Employee {
 
     }
 
-    public String getStatus() {
+    private String getStatus() {
         if (metWithHr && metDeptStaff
                 && reviewedDeptPolicies && movedIn) {
             return "Orientation is completed on: " + getFormattedDate();
@@ -101,5 +104,46 @@ public class Employee {
     SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YYYY");
         return sdf.format(currentDate);
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    private void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    private void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getSocialSecurityNumber() {
+        return SocialSecurityNumber;
+    }
+
+    private void setSocialSecurityNumber(String SocialSecurityNumber) {
+        this.SocialSecurityNumber = SocialSecurityNumber;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    private void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getCubeId() {
+        return cubeId;
+    }
+
+    private void setCubeId(String cubeId) {
+        this.cubeId = cubeId;
+    }
+    
 }   
 

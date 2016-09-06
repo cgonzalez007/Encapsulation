@@ -10,12 +10,9 @@ import java.util.Date;
 public class HumanResources {
   
     
-    public void runEmployeeThroughFirstDayProcedures(Employee employee){
+    public void runEmployeeThroughFirstDayProcedures(Employee employee, String){
         
     }
     
-    public void enterEmployeeInformation(String lastName, String firstName,
-            String ssn, Date birthDate){
     
-    }
 }
