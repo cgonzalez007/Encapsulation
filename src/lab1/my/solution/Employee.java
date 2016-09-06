@@ -40,11 +40,6 @@ public class Employee {
         moveIntoCubicle(cubeId);
     }
 
-    private String getFormattedDate() {
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/YYYY");
-        return sdf.format(currentDate);
-    }
-
     public String getStatus() {
         if (metWithHr && metDeptStaff
                 && reviewedDeptPolicies && movedIn) {
@@ -52,6 +47,11 @@ public class Employee {
         } else {
             return getFormattedDate() + ": Orientation in progress...";
         }
+    }
+
+    private String getFormattedDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("M/d/YYYY");
+        return sdf.format(currentDate);
     }
 
     // Assume this must be performed first
