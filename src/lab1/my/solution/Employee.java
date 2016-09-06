@@ -24,6 +24,7 @@ public class Employee {
     private boolean metDeptStaff;
     private boolean reviewedDeptPolicies;
     private boolean movedIn;
+    
     private Date currentDate;
 
     public Employee(String lastName, String firstName, String SocialSecurityNumber) {
@@ -39,9 +40,12 @@ public class Employee {
         this.birthDate = birthDate;
     }
     
-
+    public void completeFirstDayProcedures(){
+    
+    }
+    
     // Assume this must be performed first
-    private void meetWithHrForBenefitAndSalaryInfo() {
+    public void meetWithHrForBenefitAndSalaryInfo() {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YYYY");
         String fmtDate = sdf.format(currentDate);
         System.out.println("Met with Hr on " + fmtDate);
@@ -64,7 +68,7 @@ public class Employee {
     // Assume this must be performed third
     private void reviewDeptPolicies() {
         if (metWithHr && metDeptStaff) {
-            SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YYYY");
             String fmtDate = sdf.format(currentDate);
             System.out.println("Reviewed Dept. Policies on " + fmtDate);
             reviewedDeptPolicies = true;
@@ -76,9 +80,9 @@ public class Employee {
     }
 
     // Assume this must be performed 4th
-    private void moveIntoCubicle(String cubeId) {
+    public void moveIntoCubicle(String cubeId) {
         if (metWithHr && metDeptStaff && reviewedDeptPolicies) {
-            SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YYYY");
             String fmtDate = sdf.format(currentDate);
             System.out.println("Moved into cube on " + fmtDate);
             this.cubeId = cubeId;
@@ -93,7 +97,7 @@ public class Employee {
     }
 
     public String getStatus() {
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YYYY");
         String fmtDate = sdf.format(currentDate);
 
         if (metWithHr && metDeptStaff

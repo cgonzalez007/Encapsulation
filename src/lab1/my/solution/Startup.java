@@ -1,9 +1,5 @@
 package lab1.my.solution;
 
-
-
-
-
 /**
  * In this lab your challenge is to fix the code in both classes to use
  * proper encapsulation and the other best practices as explained by 
