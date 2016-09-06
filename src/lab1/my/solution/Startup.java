@@ -9,6 +9,7 @@ package lab1.my.solution;
  * @version     1.01
  */
 public class Startup {
+
     public static void main(String[] args) {
         /*
             Are we violating SRP (Single Responsibility Principle)?
@@ -18,15 +19,15 @@ public class Startup {
             Should we do the work here or delegate to the new class? You
             may need to create a new class that talks to Employee. This does
             not have to be a GUI class.
-        */
-        
-        Employee employee = new Employee("Piper","Piper","555555555");
-        HumanResources humanResources = new HumanResources();
-        
-        
+         */
 
-//        System.out.println("The employee's status is: " + employee.getStatus());
+        HumanResources humanResources = new HumanResources();
+        humanResources.runEmployeeThroughFirstDayProcedures("Piper", "Peter",
+                "555-55-5555", "B555");
+
+        System.out.println("\n\nThe employee's status is: "
+                + humanResources.getEmployee().getStatus());
+
     }
-    
-    
+
 }

@@ -19,45 +19,52 @@ public class Employee {
     private String SocialSecurityNumber;
     private Date birthDate;
     private String cubeId;
-    
     private boolean metWithHr;
     private boolean metDeptStaff;
     private boolean reviewedDeptPolicies;
     private boolean movedIn;
-    
     private Date currentDate;
 
-    public Employee(String lastName, String firstName, String SocialSecurityNumber) {
+    public Employee(String lastName, String firstName,
+            String SocialSecurityNumber) {
+        currentDate = new Date();
         this.firstName = firstName;
         this.lastName = lastName;
         this.SocialSecurityNumber = SocialSecurityNumber;
     }
-    
-    public Employee(String lastName, String firstName, String SocialSecurityNumber, Date birthDate) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.SocialSecurityNumber = SocialSecurityNumber;
-        this.birthDate = birthDate;
-    }
-    
-    public void completeFirstDayProcedures(String cubeId){
-        meetDepartmentStaff();
+
+    public void completeFirstDayProcedures(String cubeId) {
+        meetWithHrForBenefitAndSalaryInfo();
         meetDepartmentStaff();
         reviewDeptPolicies();
         moveIntoCubicle(cubeId);
     }
-    
+
+    private String getFormattedDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("M/d/YYYY");
+        return sdf.format(currentDate);
+    }
+
+    public String getStatus() {
+        if (metWithHr && metDeptStaff
+                && reviewedDeptPolicies && movedIn) {
+            return "Orientation was completed : " + getFormattedDate();
+        } else {
+            return getFormattedDate() + ": Orientation in progress...";
+        }
+    }
+
     // Assume this must be performed first
-    public void meetWithHrForBenefitAndSalaryInfo() {
+    private void meetWithHrForBenefitAndSalaryInfo() {
         System.out.println("Met with Hr on " + getFormattedDate());
-        metWithHr = true;
+        setMetWithHr(true);
     }
 
     // Assume this is must be performed second
     private void meetDepartmentStaff() {
         if (metWithHr) {
             System.out.println("Met with Dept. Staff on " + getFormattedDate());
-            metDeptStaff = true;
+            setMetDeptStaff(true);
         } else {
             System.out.println("Sorry, you cannot meet with "
                     + "department staff until you have met with HR.");
@@ -67,8 +74,9 @@ public class Employee {
     // Assume this must be performed third
     private void reviewDeptPolicies() {
         if (metWithHr && metDeptStaff) {
-            System.out.println("Reviewed Dept. Policies on " + getFormattedDate());
-            reviewedDeptPolicies = true;
+            System.out.println("Reviewed Dept. Policies on "
+                    + getFormattedDate());
+            setReviewedDeptPolicies(true);
         } else {
             System.out.println("Sorry, you cannot review "
                     + " department policies until you have first met with HR "
@@ -80,8 +88,8 @@ public class Employee {
     private void moveIntoCubicle(String cubeId) {
         if (metWithHr && metDeptStaff && reviewedDeptPolicies) {
             System.out.println("Moved into cube on " + getFormattedDate());
-            this.cubeId = cubeId;
-            this.movedIn = true;
+            setCubeId(cubeId);
+            setMovedIn(true);
         } else {
             System.out.println("Sorry, you cannot move in to a "
                     + "cubicle until you have first met with HR "
@@ -89,20 +97,6 @@ public class Employee {
                     + "department policies.");
         }
 
-    }
-
-    private String getStatus() {
-        if (metWithHr && metDeptStaff
-                && reviewedDeptPolicies && movedIn) {
-            return "Orientation is completed on: " + getFormattedDate();
-        } else {
-            return getFormattedDate() + ": Orientation in progress...";
-        }
-    }
-    
-    public String getFormattedDate(){
-    SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YYYY");
-        return sdf.format(currentDate);
     }
 
     public String getFirstName() {
@@ -144,6 +138,21 @@ public class Employee {
     private void setCubeId(String cubeId) {
         this.cubeId = cubeId;
     }
-    
-}   
 
+    private void setMetWithHr(boolean metWithHr) {
+        this.metWithHr = metWithHr;
+    }
+
+    private void setMetDeptStaff(boolean metDeptStaff) {
+        this.metDeptStaff = metDeptStaff;
+    }
+
+    private void setReviewedDeptPolicies(boolean reviewedDeptPolicies) {
+        this.reviewedDeptPolicies = reviewedDeptPolicies;
+    }
+
+    private void setMovedIn(boolean movedIn) {
+        this.movedIn = movedIn;
+    }
+
+}
