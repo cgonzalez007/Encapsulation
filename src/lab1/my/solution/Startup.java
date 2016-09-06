@@ -1,5 +1,7 @@
 package lab1.my.solution;
 
+import java.util.Date;
+
 
 
 /**
@@ -22,7 +24,7 @@ public class Startup {
             not have to be a GUI class.
         */
         
-        Employee employee = new Employee();
+        Employee employee = new Employee("Piper","Piper","555555555",new Date("05/25/1992"));
         HumanResources humanResources = new HumanResources();
         
         

@@ -16,7 +16,7 @@ public class Employee {
 
     private String firstName;
     private String lastName;
-    private String ssn;
+    private String SocialSecurityNumber;
     private Date birthDate;
     private String cubeId;
     
@@ -24,13 +24,19 @@ public class Employee {
     private boolean metDeptStaff;
     private boolean reviewedDeptPolicies;
     private boolean movedIn;
-
-   
     private Date currentDate;
+
+    public Employee(String lastName, String firstName, String SocialSecurityNumber, Date birthDate) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.SocialSecurityNumber = SocialSecurityNumber;
+        this.birthDate = birthDate;
+    }
+    
 
     // Assume this must be performed first
     private void meetWithHrForBenefitAndSalaryInfo() {
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YYYY");
         String fmtDate = sdf.format(currentDate);
         System.out.println("Met with Hr on " + fmtDate);
         metWithHr = true;
@@ -39,7 +45,7 @@ public class Employee {
     // Assume this is must be performed second
     private void meetDepartmentStaff() {
         if (metWithHr) {
-            SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YYYY");
             String fmtDate = sdf.format(currentDate);
             System.out.println("Met with Dept. Staff on " + fmtDate);
             metDeptStaff = true;
@@ -92,3 +98,4 @@ public class Employee {
         }
     }
 }
+
