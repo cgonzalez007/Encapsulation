@@ -26,6 +26,12 @@ public class Employee {
     private boolean movedIn;
     private Date currentDate;
 
+    public Employee(String lastName, String firstName, String SocialSecurityNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.SocialSecurityNumber = SocialSecurityNumber;
+    }
+    
     public Employee(String lastName, String firstName, String SocialSecurityNumber, Date birthDate) {
         this.lastName = lastName;
         this.firstName = firstName;
