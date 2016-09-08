@@ -160,4 +160,20 @@ public class Employee {
         this.movedIn = movedIn;
     }
 
+    public boolean isMetWithHr() {
+        return metWithHr;
+    }
+
+    public boolean isMetDeptStaff() {
+        return metDeptStaff;
+    }
+
+    public boolean isReviewedDeptPolicies() {
+        return reviewedDeptPolicies;
+    }
+
+    public boolean isMovedIn() {
+        return movedIn;
+    }
+
 }
