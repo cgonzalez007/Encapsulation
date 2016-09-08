@@ -5,7 +5,7 @@ package lab1.my.solution;
  *
  * @author cgonz
  */
-public class HumanResources {
+public class HRManager {
 
     private Employee employee;
 

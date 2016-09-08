@@ -49,19 +49,19 @@ public class Employee {
         }
     }
 
-    private String getFormattedDate() {
+    public String getFormattedDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("M/d/YYYY");
         return sdf.format(currentDate);
     }
 
     // Assume this must be performed first
-    private void meetWithHrForBenefitAndSalaryInfo() {
+    public void meetWithHrForBenefitAndSalaryInfo() {
         System.out.println("Met with Hr on " + getFormattedDate());
         setMetWithHr(true);
     }
 
     // Assume this is must be performed second
-    private void meetDepartmentStaff() {
+    public void meetDepartmentStaff() {
         if (metWithHr) {
             System.out.println("Met with Dept. Staff on " + getFormattedDate());
             setMetDeptStaff(true);
@@ -72,7 +72,7 @@ public class Employee {
     }
 
     // Assume this must be performed third
-    private void reviewDeptPolicies() {
+    public void reviewDeptPolicies() {
         if (metWithHr && metDeptStaff) {
             System.out.println("Reviewed Dept. Policies on "
                     + getFormattedDate());
@@ -85,7 +85,7 @@ public class Employee {
     }
 
     // Assume this must be performed 4th
-    private void moveIntoCubicle(String cubeId) {
+    public void moveIntoCubicle(String cubeId) {
         if (metWithHr && metDeptStaff && reviewedDeptPolicies) {
             System.out.println("Moved into cube on " + getFormattedDate());
             setCubeId(cubeId);
@@ -103,7 +103,8 @@ public class Employee {
         return firstName;
     }
 
-    private void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
+        //requires validation
         this.firstName = firstName;
     }
 
@@ -111,7 +112,8 @@ public class Employee {
         return lastName;
     }
 
-    private void setLastName(String lastName) {
+    public void setLastName(String lastName) {
+          //requires validation
         this.lastName = lastName;
     }
 
@@ -119,7 +121,8 @@ public class Employee {
         return SocialSecurityNumber;
     }
 
-    private void setSocialSecurityNumber(String SocialSecurityNumber) {
+    public void setSocialSecurityNumber(String SocialSecurityNumber) {
+          //requires validation
         this.SocialSecurityNumber = SocialSecurityNumber;
     }
 
@@ -127,7 +130,8 @@ public class Employee {
         return birthDate;
     }
 
-    private void setBirthDate(Date birthDate) {
+    public void setBirthDate(Date birthDate) {
+          //requires validation
         this.birthDate = birthDate;
     }
 
@@ -135,7 +139,8 @@ public class Employee {
         return cubeId;
     }
 
-    private void setCubeId(String cubeId) {
+    public void setCubeId(String cubeId) {
+          //requires validation
         this.cubeId = cubeId;
     }
 

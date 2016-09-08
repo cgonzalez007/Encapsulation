@@ -1,4 +1,6 @@
-package lab1.my.solution;
+package lab1.inclasssolution;
+
+
 
 /**
  * In this lab your challenge is to fix the code in both classes to use
@@ -9,7 +11,6 @@ package lab1.my.solution;
  * @version     1.01
  */
 public class Startup {
-
     public static void main(String[] args) {
         /*
             Are we violating SRP (Single Responsibility Principle)?
@@ -19,15 +20,12 @@ public class Startup {
             Should we do the work here or delegate to the new class? You
             may need to create a new class that talks to Employee. This does
             not have to be a GUI class.
-         */
-
-        HRManager humanResources = new HRManager();
-        humanResources.runEmployeeThroughFirstDayProcedures("Piper", "Peter",
-                "555-55-5555", "B555");
-
-        System.out.println("\n\nThe employee's status is: "
-                + humanResources.getEmployee().getStatus());
-
+        */
+        HRManager hr = new HRManager();
+        Employee employee = new Employee();
+        employee.setFirstName("John");
+        
+        hr.orientNewEmployee(employee);
+        
     }
-
 }
